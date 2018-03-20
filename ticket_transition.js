@@ -1,10 +1,10 @@
 
 //换届时间（开展前一天）
-// 给展示展会时间地址的标签添加 class="expo_time" 属性
+// 给展示展会时间地址的标签添加 class="min_time" 属性
 
 /*transEx({
 	start:"2018/03/11 12:00:00",								// start:当前展会索票截止时间（弹框显示）
-	end:"2018/03/12 20:00:00",									// end:下届展会索票开始时间（弹框隐藏）
+	end:"2018/03/11 20:00:00",									// end:下届展会索票开始时间（弹框隐藏）
 	curAddr:"-杭州国际博览中心 3月10-11日-",					// curAddr:当前展会的时间地址
 	nxtAddr:"-杭州国际博览中心 6月23-24日-",					// nxtAddr:下一届展会的时间地址
 	exTime:"03月10日（9:30-20:00）、03月11日（9:30-19:30）",	//开展时间
@@ -22,7 +22,7 @@ function transEx(obj){
 	    $("body").append("<style>"+css+"</style>");
 	    var popout=$(".pop-box");
 	    // 需要更换展会时间地址的标签
-	    var addrBox=$('.expo_time');
+	    var addrBox=$('.min_time');
 
 	    var start=new Date(obj.start).getTime();
     	var end=new Date(obj.end).getTime();
