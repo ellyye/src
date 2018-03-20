@@ -1,9 +1,10 @@
 
 //换届时间（开展前一天）
+// 给展示展会时间地址的标签添加 class="expo_time" 属性
 
 /*transEx({
-	start:"2018/03/11 12:00:00",								// start:索票截止时间（弹框显示）
-	end:"2017/03/11 20:00:00",									// end:索票开始时间（弹框隐藏）
+	start:"2018/03/11 12:00:00",								// start:当前展会索票截止时间（弹框显示）
+	end:"2018/03/12 20:00:00",									// end:下届展会索票开始时间（弹框隐藏）
 	curAddr:"-杭州国际博览中心 3月10-11日-",					// curAddr:当前展会的时间地址
 	nxtAddr:"-杭州国际博览中心 6月23-24日-",					// nxtAddr:下一届展会的时间地址
 	exTime:"03月10日（9:30-20:00）、03月11日（9:30-19:30）",	//开展时间
@@ -19,7 +20,7 @@ function transEx(obj){
 		var css='html{height:100%;}body{height:100%}.pop-box{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:rgba(0,0,0,0.5)}.expo_tc{width:600px;overflow:hidden;border:solid red 1px;text-align:center;position:fixed;padding:10px;font-size:20px;background:#fff;z-index:9999;}.expo_tc h3{margin-bottom:10px}.tc_close{position:absolute;right:10px;top:0;font-size:20px;cursor:pointer}.go_next{width:400px;height:40px;line-height:40px;background:red;color:#fff;text-align:center;margin:10px auto;cursor:pointer}@media screen and (max-width:1024px){.expo_tc{width:15rem;overflow:hidden;border:solid red 1px;text-align:center;position:fixed;padding:.25rem;font-size:.5rem;background:#fff;z-index:9999;margin-left:-.25rem}.expo_tc h3{margin-bottom:.25rem}.tc_close{position:absolute;right:.25rem;top:0;font-size:.5rem}.go_next{width:10rem;height:1rem;line-height:1rem;background:red;color:#fff;text-align:center;margin:.25rem auto}}.expo_tc span{color:red;display:inline-block}';
 	    $("body").append(html);
 	    $("body").append("<style>"+css+"</style>");
-	    var popout=$("pop-box");
+	    var popout=$(".pop-box");
 	    // 需要更换展会时间地址的标签
 	    var addrBox=$('.expo_time');
 
@@ -29,15 +30,15 @@ function transEx(obj){
     	var Top = ($(window).height()-$('.expo_tc').height())/2;
     	var Left = ($(window).width()-$('.expo_tc').width())/2;
 
-    	pop.children(".expo_tc").css({'top':Top,'left':Left});
+    	popout.children(".expo_tc").css({'top':Top,'left':Left});
 
 	    //点击关闭弹窗
 		$('.tc_close,.go_next').click(function(){
-      		pop.hide();
+      		popout.hide();
     	})
 
 		// 换届逻辑
     	now-start>0?addrBox.text(obj.nxtAddr):addrBox.text(obj.curAddr);
-    	now - start > 0 && now - end <0 && pop.show();
+    	now - start > 0 && now - end <0 && popout.show();
     }
 }
